@@ -3,65 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barakah Islamic - পূর্ণাঙ্গ অ্যাপ</title>
+<title>Barakah Islamic - Final Fixed</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
 :root { --p:#004d40; --s:#00695c; --gold:#ffca28; --bg:#f0f4f3; }
 * { margin:0; padding:0; box-sizing:border-box; font-family:'SolaimanLipi',sans-serif; }
 body { background-color: var(--bg); background-image: url("https://www.transparenttextures.com/patterns/arabesque.png"); color:#333; }
 
-/* ইউনিক গ্রাডিয়েন্ট হেডার */
 header { 
     background: linear-gradient(135deg, #004d40 0%, #00251a 100%);
-    color: var(--gold); padding: 35px 20px; text-align: center; 
+    color: var(--gold); padding: 15px 10px 45px; text-align: center; 
     position: sticky; top: 0; z-index: 1000; 
     box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
-    border-bottom: 4px solid var(--gold); border-radius: 0 0 40px 40px;
+    border-bottom: 3px solid var(--gold); border-radius: 0 0 30px 30px;
 }
-header::before { content: "\f67b"; font-family: "Font Awesome 6 Free"; font-weight: 900; font-size: 30px; display: block; margin-bottom: 8px; }
-header h1 { font-size: 28px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-header p { font-size: 14px; color: #cecece; margin-top: 5px; }
+header h1 { font-size: 20px; display: inline-block; }
+header i { font-size: 18px; margin-right: 8px; }
+
+.search-container { max-width: 90%; margin: -22px auto 15px; position: relative; z-index: 1100; }
+.premium-search { display: flex; align-items: center; background: white; padding: 10px 18px; border-radius: 50px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+#mainSearch { border: none; outline: none; width: 100%; font-size: 15px; background: transparent; margin-left:10px; }
 
 .container { max-width:900px; margin:auto; padding:15px; }
 .dashboard { display:grid; grid-template-columns:repeat(2,1fr); gap:15px; margin-top:10px; }
-.card { background: white; padding:25px 10px; border-radius:20px; text-align:center; cursor:pointer; border-bottom:5px solid var(--p); transition:.3s; box-shadow:0 4px 6px rgba(0,0,0,0.05); }
+.card { background: white; padding:20px 10px; border-radius:18px; text-align:center; cursor:pointer; border-bottom:4px solid var(--p); transition:.3s; box-shadow:0 4px 6px rgba(0,0,0,0.05); }
 .card:hover { transform:translateY(-5px); background: var(--p); color: white; }
-.card:hover i, .card:hover h3 { color: var(--gold); }
-.card i { font-size:35px; color: var(--p); margin-bottom:12px; }
+.card i { font-size:30px; color: var(--p); margin-bottom:10px; }
 
-#content-area { display:none; background:white; border-radius:25px; padding:15px; margin-top:10px; min-height:80vh; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-.back-btn { background:#d32f2f; color:white; border:none; padding:12px; border-radius:12px; cursor:pointer; margin-bottom:15px; font-weight:bold; width:100%; }
+#content-area { display:none; background:white; border-radius:25px; padding:15px; margin-top:5px; min-height:85vh; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+.back-btn { background:#d32f2f; color:white; border:none; padding:10px; border-radius:10px; cursor:pointer; margin-bottom:15px; font-weight:bold; width:100%; }
 .item-card { background:#fdfdfd; padding:18px; border-radius:15px; margin-bottom:12px; border-left:6px solid var(--p); box-shadow:0 2px 5px rgba(0,0,0,0.05); }
-.ar { display:block; text-align:right; font-size:30px; color:#1a237e; margin:10px 0; line-height:1.8; font-weight: bold; }
-.occ { color:#c62828; font-weight:bold; font-size:16px; margin-bottom:8px; display:block; background:#fff5f5; padding:10px; border-radius:8px; border-left:3px solid #d32f2f; }
-.mean { color:#1b5e20; font-size:17px; display:block; line-height:1.6; }
-.loading { text-align:center; padding:50px; font-weight:bold; color:var(--p); font-size:20px; }
-.t-circle { width:150px; height:150px; border:10px double var(--p); border-radius:50%; margin:20px auto; display:flex; align-items:center; justify-content:center; font-size:45px; font-weight:bold; color:var(--p); }
-.t-btn { padding:10px 20px; border:none; border-radius:20px; margin:5px; cursor:pointer; background:var(--p); color:white; font-weight:bold; }
-table { width:100%; border-collapse:collapse; }
+.ar { display:block; text-align:right; font-size:28px; color:#1a237e; margin:10px 0; font-weight: bold; }
+.occ { color:#c62828; font-weight:bold; font-size:15px; display:block; background:#fff5f5; padding:8px; border-radius:8px; border-left:3px solid #d32f2f; margin-bottom:5px; }
+.mean { color:#1b5e20; font-size:16px; display:block; }
+.loading { text-align:center; padding:50px; font-weight:bold; color:var(--p); }
+.t-circle { width:130px; height:130px; border:8px double var(--p); border-radius:50%; margin:15px auto; display:flex; align-items:center; justify-content:center; font-size:40px; font-weight:bold; color:var(--p); }
+.t-btn { padding:8px 18px; border:none; border-radius:20px; margin:5px; cursor:pointer; background:var(--p); color:white; font-weight:bold; }
+table { width:100%; border-collapse:collapse; margin-top:10px; }
 th, td { border:1px solid #ddd; padding:10px; text-align:center; }
 th { background: var(--p); color:#fff; }
+.date-box { background: #e0f2f1; padding: 10px; border-radius: 10px; margin-bottom: 15px; text-align: center; border: 1px dashed var(--p); }
 </style>
 </head>
 <body>
 
-<header>
-    <h1>Barakah Islamic</h1>
-    <p>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+<header id="mainHeader">
+    <i class="fas fa-mosque"></i><h1>Barakah Islamic</h1>
 </header>
 
 <div class="container">
+    <div id="search-section" class="search-container">
+        <div class="premium-search">
+            <i class="fas fa-search search-icon" style="color:var(--p)"></i>
+            <input type="text" id="mainSearch" placeholder="খুঁজুন..." onkeyup="universalSearch()">
+        </div>
+    </div>
+
     <div id="dashboard" class="dashboard">
         <div class="card" onclick="openCat('names')"><i class="fas fa-star-and-crescent"></i><h3>আল্লাহর ৯৯ নাম</h3></div>
         <div class="card" onclick="openCat('surah_text')"><i class="fas fa-quran"></i><h3>সূরা টেক্সট</h3></div>
         <div class="card" onclick="openCat('voice')"><i class="fas fa-microphone-alt"></i><h3>সূরা ভয়েস</h3></div>
         <div class="card" onclick="openCat('hadith')"><i class="fas fa-book-open"></i><h3>হাদিস</h3></div>
-        <div class="card" onclick="openCat('kalema')"><i class="fas fa-mosque"></i><h3>কালেমা</h3></div>
-        <div class="card" onclick="openCat('dua')"><i class="fas fa-hands-praying"></i><h3>প্রয়োজনীয় দোয়া</h3></div>
-        <div class="card" onclick="openCat('namaj')"><i class="fas fa-person-praying"></i><h3>নামাজ শিক্ষা</h3></div>
-        <div class="card" onclick="openCat('masala')"><i class="fas fa-kaaba"></i><h3>মাসয়ালা</h3></div>
+        <div class="card" onclick="openCat('kalema')"><i class="fas fa-kaaba"></i><h3>কালেমা</h3></div>
+        <div class="card" onclick="openCat('dua')"><i class="fas fa-hands-praying"></i><h3>দোয়া</h3></div>
+        <div class="card" onclick="openCat('namaj')"><i class="fas fa-person-praying"></i><h3>নামাজ</h3></div>
+        <div class="card" onclick="openCat('masala')"><i class="fas fa-info-circle"></i><h3>মাসয়ালা</h3></div>
         <div class="card" onclick="openCat('tasbih')"><i class="fas fa-beads"></i><h3>তসবিহ</h3></div>
-        <div class="card" onclick="openCat('salattime')"><i class="fas fa-clock"></i><h3>সময়সূচি</h3></div>
+        <div class="card" onclick="openCat('salattime')"><i class="fas fa-clock"></i><h3>সময়সূচী</h3></div>
+        <div class="card" onclick="openCat('caption')"><i class="fas fa-quote-left"></i><h3>ক্যাপশন</h3></div>
     </div>
 
     <div id="content-area">
@@ -71,94 +80,143 @@ th { background: var(--p); color:#fff; }
 </div>
 
 <script>
-// ১. আল্লাহর ৯৯ নাম (সম্পূর্ণ ৯৯টিই আছে)
+// গুগল শিট লিঙ্কসমূহ
+const sheetLinks = {
+    masala: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTqXwwoDfZVFczlBoCelWofMT0zev7tzgmtaIPncPAlSJ1DNrf9ESQdPngzj3gNCZUvj9d96cX1P3_d/pub?gid=334309001&single=true&output=csv",
+    dua: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTqXwwoDfZVFczlBoCelWofMT0zev7tzgmtaIPncPAlSJ1DNrf9ESQdPngzj3gNCZUvj9d96cX1P3_d/pub?gid=663353245&single=true&output=csv",
+    namaj: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTqXwwoDfZVFczlBoCelWofMT0zev7tzgmtaIPncPAlSJ1DNrf9ESQdPngzj3gNCZUvj9d96cX1P3_d/pub?gid=1698881947&single=true&output=csv",
+    kalema: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTqXwwoDfZVFczlBoCelWofMT0zev7tzgmtaIPncPAlSJ1DNrf9ESQdPngzj3gNCZUvj9d96cX1P3_d/pub?gid=187671842&single=true&output=csv",
+    caption: "https://docs.google.com/spreadsheets/d/e/2PACX-1vTqXwwoDfZVFczlBoCelWofMT0zev7tzgmtaIPncPAlSJ1DNrf9ESQdPngzj3gNCZUvj9d96cX1P3_d/pub?gid=187671842&single=true&output=csv"
+};
+
+// আল্লাহর ৯৯ নাম ডাটা
 const names99 = [
-    {n:"اللَّهُ", b:"আল্লাহ", m:"আল্লাহ (এক সত্তা)"}, {n:"الرَّحْمَنُ", b:"আর-রাহমান", m:"পরম দয়ালু"}, {n:"الرَّحِيمُ", b:"আর-রাহীম", m:"অতিশয় মেহেরবান"}, {n:"الْمَلِكُ", b:"আল-মালিক", m:"সর্বভৌম ক্ষমতার অধিকারী"}, {n:"الْقُدُّوسُ", b:"আল-কুদ্দুস", m:"অতি পবিত্র"}, {n:"السَّلَامُ", b:"আস-সালাম", m:"শান্তি দানকারী"}, {n:"الْمُؤْمِنُ", b:"আল-মু'মিন", m:"নিরাপত্তা দানকারী"}, {n:"الْمُهَيْمِنُ", b:"আল-মুহাইমিন", m:"রক্ষণাবেক্ষণকারী"}, {n:"الْعَزِيزُ", b:"আল-আযীয", m:"মহা পরাক্রমশালী"}, {n:"الْجَبَّارُ", b:"আল-জাব্বার", m:"দুনিবার"}, {n:"الْمُتَكَبِّرُ", b:"আল-মুতাকাবিবর", m:"গৌরবান্বিত"}, {n:"الْخَالِقُ", b:"আল-খালিক", m:"সৃষ্টিকর্তা"}, {n:"الْبَارِئُ", b:"আল-বারী", m:"উদ্ভাবনকারী"}, {n:"الْمُصَوِّرُ", b:"আল-মুসাউয়ির", m:"আকৃতি দানকারী"}, {n:"الْغَفَّارُ", b:"আল-গাফফার", m:"মহা ক্ষমাশীল"}, {n:"الْقَهَّارُ", b:"আল-কাহهار", m:"মহাপ্রতাপশালী"}, {n:"الْوَهَّابُ", b:"আল-ওয়াহহাব", m:"মহা দাতা"}, {n:"الرَّجَّاقُ", b:"আর-রাযযাক", m:"রিজিকদাতা"}, {n:"الْفَتَّاحُ", b:"আল-ফাত্তাহ", m:"বিজয়দানকারী"}, {n:"الْعَلِيمُ", b:"আল-আলীম", m:"সর্বজ্ঞানী"}, {n:"الْقَابِضُ", b:"আল-কাবিদ", m:"সংকুচিতকারী"}, {n:"الْبَاسِطُ", b:"আল-বাসিত", m:"সম্প্রসারণকারী"}, {n:"الْخَافِضُ", b:"আল-খাফিদ", m:"অবনতকারী"}, {n:"الرَّافِعُ", b:"আর-রাফি", m:"উন্নতকারী"}, {n:"الْمُعِزُّ", b:"আল-মুইয", m:"সম্মান দানকারী"}, {n:"الْمُذِلُّ", b:"আল-মুযিল", m:"অপমানকারী"}, {n:"السَّمِيعُ", b:"আস-সামি", m:"সর্বশ্রোতা"}, {n:"الْبَصِيرُ", b:"আল-বাসীর", m:"সর্বদ্রষ্টা"}, {n:"الْحَكَمُ", b:"আল-হাকাম", m:"বিচারক"}, {n:"الْعَدْلُ", b:"আল-আদল", m:"ন্যায়বিচারক"}, {n:"اللَّطِيفُ", b:"আল-লতীফ", m:"সূক্ষ্মদর্শী"}, {n:"الْخَبِيرُ", b:"আল-খাবীর", m:"অবহিত"}, {n:"الْحَلِيمُ", b:"আল-হালীম", m:"ধৈর্যশীল"}, {n:"الْعَظِيمُ", b:"আল-আযীম", m:"মহিমান্বিত"}, {n:"الْغَفُورُ", b:"আল-গাফুর", m:"ক্ষমাশীল"}, {n:"الشَّكُورُ", b:"আশ-শাকুর", m:"গুণগ্রাহী"}, {n:"الْعَلِيُّ", b:"আল-আলী", m:"উচ্চ মর্যাদাশীল"}, {n:"الْكَبِيرُ", b:"আল-কাবীর", m:"মহান"}, {n:"الْحَفِيظُ", b:"আল-হাফীয", m:"রক্ষক"}, {n:"الْمُقִيتُ", b:"আল-মুকীত", m:"আহারদাতা"}, {n:"الْحَسِيبُ", b:"আল-হাসীব", m:"হিসাব গ্রহণকারী"}, {n:"الْجَلِيلُ", b:"আল-জালীল", m:"প্রতাপশালী"}, {n:"الْكَرِيمُ", b:"আল-কারীম", m:"দয়ালু"}, {n:"الرَّقِيبُ", b:"আর-রাকীব", m:"তত্ত্বাবধায়ক"}, {n:"الْمُجِيبُ", b:"আল-মুজীব", m:"কবুলকারী"}, {n:"الْوَاسِعُ", b:"আল-ওয়াসি", m:"অসীম দাতা"}, {n:"الْحَكِيمُ", b:"আল-হাকীম", m:"প্রজ্ঞাময়"}, {n:"الْوَدُودُ", b:"আল-ওয়াদুদ", m:"প্রেমময়"}, {n:"الْمَجِيدُ", b:"আল-মাজীদ", m:"গৌরবময়"}, {n:"الْبَاعِثُ", b:"আল-বাইস", m:"পুনরুত্থানকারী"}, {n:"الشَّهِيدُ", b:"আশ-শাহীদ", m:"সাক্ষী"}, {n:"الْحَقُّ", b:"আল-হক", m:"সত্য"}, {n:"الْوَكِيلُ", b:"আল-ওয়াকীল", m:"কর্মবিধায়ক"}, {n:"الْقَوِيُّ", b:"আল-কউয়ী", m:"শক্তিশালী"}, {n:"الْمَتِينُ", b:"আল-মাতীন", m:"সুদৃঢ়"}, {n:"الْوَلِيُّ", b:"আল-ওয়ালী", m:"অভিভাবক"}, {n:"الْحَمِيدُ", b:"আল-হামীদ", m:"প্রশংসিত"}, {n:"الْمُحْصِي", b:"আল-মুহসী", m:"হিসাব সংরক্ষণকারী"}, {n:"الْمُবْدِئُ", b:"আল-মুবদী", m:"সৃষ্টিকর্তা"}, {n:"الْمُعِيدُ", b:"আল-মুঈদ", m:"পুনরায় সৃষ্টিকর্তা"}, {n:"الْمُحْيِي", b:"আল-মুহয়ী", m:"জীবনদানকারী"}, {n:"الْمُمِيتُ", b:"আল-মুমীত", m:"মৃত্যুদানকারী"}, {n:"الْحَيُّ", b:"আল-হাইয়্যু", m:"চিরঞ্জীব"}, {n:"الْقَيُّومُ", b:"আল-কাইয়্যুম", m:"ধারক"}, {n:"الْوَاجِدُ", b:"আল-ওয়াজিদ", m:"প্রাপক"}, {n:"الْمَاجِدُ", b:"আল-মাজিদ", m:"শ্রেষ্ঠ"}, {n:"الْوَاحِدُ", b:"আল-ওয়াহিদ", m:"একক"}, {n:"الْأَحَدُ", b:"আল-আহাদ", m:"অদ্বিতীয়"}, {n:"الصَّمَدُ", b:"আস-সামাদ", m:"অমুখাপেক্ষী"}, {n:"الْقَادِرُ", b:"আল-কাদির", m:"সর্বশক্তিমান"}, {n:"الْمُقْتَدِرُ", b:"আল-মুক্তাদির", m:"সামর্থ্যবান"}, {n:"الْمُقَدِّমُ", b:"আল-মুকাদ্দিম", m:"অগ্রগতি দানকারী"}, {n:"الْمُؤَخِّরُ", b:"আল-মুআখখির", m:"বিলম্বকারী"}, {n:"الْأَوَّلُ", b:"আল-আউয়াল", m:"অনাাদি"}, {n:"الْآخِرُ", b:"আল-আখির", m:"অনন্ত"}, {n:"الظَّاهِرُ", b:"আয-যাহির", m:"প্রকাশ্য"}, {n:"الْبَاطِنُ", b:"আল-বাতিন", m:"গোপন"}, {n:"الْوَالِي", b:"আল-ওয়ালী", m:"অধিপতি"}, {n:"الْمُتَعَالِي", b:"আল-মুতাআলী", m:"সর্বোচ্চ মহিমান্বিত"}, {n:"الْبَرُّ", b:"আল-বার", m:"কল্যাণময়"}, {n:"التَّوَّাবُ", b:"আত-তাওয়াব", m:"তওবা কবুলকারী"}, {n:"الْمُنْتَقِمُ", b:"আল-মুন্তাকিম", m:"প্রতিশোধ গ্রহণকারী"}, {n:"الْعَفُوُّ", b:"আল-আফু", m:"মার্জনাকারী"}, {n:"الرَّؤُوفُ", b:"আর-রউফ", m:"দয়ালু"}, {n:"مَالِكُ الْمُلْكِ", b:"মালিকুল মুলক", m:"জগতের মালিক"}, {n:"ذُو الْجَلَالِ وَالْإِكْرَامِ", b:"যুল জালালি ওয়াল ইকরম", m:"মহত্ত্বের অধিকারী"}, {n:"الْمُقْسِطُ", b:"আল-মুকসিত", m:"ন্যায়পরায়ণ"}, {n:"الْجَামِعُ", b:"আল-জামি", m:"একত্রকারী"}, {n:"الْغَنِيُّ", b:"আল-গণী", m:"ধনী"}, {n:"الْمُغْنِي", b:"আল-মুগণী", m:"অভাবমুক্তকারী"}, {n:"الْمَانِعُ", b:"আল-মানি", m:"প্রতিরোধকারী"}, {n:"الضَّارُّ", b:"আদ-দার", m:"অনিষ্টকারী"}, {n:"النَّافِعُ", b:"আন-নাফি", m:"উপকারকারী"}, {n:"النُّورُ", b:"আন-নূর", m:"জ্যোতি"}, {n:"الْهَادِي", b:"আল-হাদী", m:"পথপ্রদর্শক"}, {n:"الْبَدِيعُ", b:"আল-বাদী", m:"অপূর্ব সৃষ্টিকর্তা"}, {n:"الْبَاقِي", b:"আল-বাকী", m:"অবিনশ্বর"}, {n:"الْوَارِثُ", b:"আল-ওয়ারিস", m:"উত্তরাধিকারী"}, {n:"الرَّشِيدُ", b:"আর-রাশীদ", m:"সঠিক পথের দিশারী"}, {n:"الصَّبُورُ", b:"আস-সাবুর", m:"ধৈর্যশীল"}
-];
-
-// ২. কালেমা ডাটা
-const kalemaData = [
-    {t:"১. কালেমা তাইয়্যেবা",ar:"لَا إِلٰهَ إِلَّا اللهُ مُحَمَّدٌ رَسُولُ اللهِ",occ:"লা ইলাহা ইল্লাল্লাহু মুহাম্মাদুর রাসূলুল্লাহ।",mean:"আল্লাহ ছাড়া কোনো মাবুদ নেই, মুহাম্মাদ (সা.) আল্লাহর রাসূল।"},
-    {t:"২. কালেমা শাহাদাত",ar:"أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",occ:"আশহাদু আল লা ইলাহা ইল্লাল্লাহু ওয়াহদাহু লা শারিকা লাহু ওয়া আশহাদু আন্না মুহাম্মাদান আবদুহু ওয়া রাসূলুহু।",mean:"আমি সাক্ষ্য দিচ্ছি যে, আল্লাহ ছাড়া কোনো মাবুদ নেই এবং মুহাম্মাদ (সা.) তাঁর বান্দা ও রাসূল।"}
-];
-
-// ৩. প্রয়োজনীয় দোয়া
-const duaData = [
-    {t:"১. দোয়া ইউনুস",ar:"لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ",occ:"লা ইলাহা ইল্লা আন্তা সুবহানাকা ইন্নি কুনতু মিনায যলিমিন।",mean:"আপনি ছাড়া কোনো মাবুদ নেই, আপনি পবিত্র। নিশ্চয়ই আমি জালেমদের অন্তর্ভুক্ত।"},
-    {t:"২. আয়াতুল কুরসি",ar:"اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ...",occ:"আল্লাহু লা ইলাহা ইল্লা হুয়াল হাইয়্যুল কাইয়্যুম।",mean:"আল্লাহ ছাড়া কোনো ইলাহ নেই, তিনি চিরঞ্জীব।"}
-];
-
-// ৪. নামাজ শিক্ষা
-const namajData = [
-    {t:"১. নামাজের সানা",occ:"সুবহানাকা আল্লাহুম্মা ওয়া বিহামদিকা ওয়া তাবারাকাসমুকা ওয়া তাআলা জাদ্দুকা ওয়া লা ইলাহা গাইরুকা।",mean:"হে আল্লাহ! আমি আপনার পবিত্রতা বর্ণনা করছি।"},
-    {t:"২. তাশাহহুদ",occ:"আত্তাহিইয়াতু লিল্লাহি ওয়াস সালাওয়াতু ওয়াত তাইয়্যিবাতু...",mean:"যাবতীয় সম্মান ও উপাসনা আল্লাহর জন্য।"}
-];
-
-// ৫. মাসয়ালা
-const masalaData = [
-    {t:"১. ওযুর ফরজ ৪টি",detail:"১. সমস্ত মুখ একবার ধোয়া। <br>২. দুই হাত কনুইসহ ধোয়া। <br>৩. মাথার চারভাগের একভাগ মাসেহ করা। <br>৪. দুই পা টাকনুসহ ধোয়া।"},
-    {t:"২. গোসলের ফরজ ৩টি",detail:"১. গড়গড়া করে কুলি করা। <br>২. নাকে পানি দেওয়া। <br>৩. সমস্ত শরীরে পানি পৌঁছানো।"}
+    {n:"اللَّهُ", b:"আল্লাহ", m:"আল্লাহ (এক সত্তা)"}, {n:"الرَّحْمَنُ", b:"আর-রাহমান", m:"পরম দয়ালু"}, {n:"الرَّحِيمُ", b:"আর-রাহীম", m:"অতিশয় মেহেরবান"}, {n:"الْمَلِكُ", b:"আল-মালিক", m:"সর্বভৌম ক্ষমতার অধিকারী"}, {n:"الْقُدُّوسُ", b:"আল-কুদ্দুস", m:"অতি পবিত্র"}, {n:"السَّلَامُ", b:"আস-সালাম", m:"শান্তি দানকারী"}, {n:"الْمُؤْمِنُ", b:"আল-মু'মিন", m:"নিরাপত্তা দানকারী"}, {n:"الْمُهَيْمِنُ", b:"আল-মুহাইমিন", m:"রক্ষণাবেক্ষণকারী"}, {n:"الْعَزِيزُ", b:"আল-আযীয", m:"মহা পরাক্রমশালী"}, {n:"الْجَبَّارُ", b:"আল-জাব্বার", m:"দুনিবার"}, {n:"الْمُتَكَبِّরُ", b:"আল-মুতাকাবিবর", m:"গৌরবান্বিত"}, {n:"الْخَالِقُ", b:"আল-খালিক", m:"সৃষ্টিকর্তা"}, {n:"الْبَارِئُ", b:"আল-বারী", m:"উদ্ভাবনকারী"}, {n:"الْمُصَوِّরُ", b:"আল-মুসাউয়ির", m:"আকৃতি দানকারী"}, {n:"الْغَفَّارُ", b:"আল-গাফফার", m:"মহা ক্ষমাশীল"}, {n:"الْقَهَّارُ", b:"আল-কাহহার", m:"মহাপ্রতাপশালী"}, {n:"الْوَهَّাবُ", b:"আল-ওয়াহহাব", m:"মহা দাতা"}, {n:"الرَّজَّاقُ", b:"আর-রাযযাক", m:"রিজিকদাতা"}, {n:"الْفَتَّاحُ", b:"আল-ফাত্তাহ", m:"বিজয়দানকারী"}, {n:"الْعَلِيمُ", b:"আল-আলীম", m:"সর্বজ্ঞানী"}, {n:"الْقَابِضُ", b:"আল-কাবিদ", m:"সংকুচিতকারী"}, {n:"الْبَাসِطُ", b:"আল-বাসিত", m:"সম্প্রসারণকারী"}, {n:"الْخَافِضُ", b:"আল-খাফিদ", m:"অবনতকারী"}, {n:"الرَّافِعُ", b:"আর-রাফি", m:"উন্নতকারী"}, {n:"الْمُعِزُّ", b:"আল-মুইয", m:"সম্মান দানকারী"}, {n:"الْمُذِلُّ", b:"আল-মুযিল", m:"অপমানকারী"}, {n:"السَّمِيعُ", b:"আস-সামি", m:"সর্বশ্রোতা"}, {n:"الْبَصِيرُ", b:"আল-বাসীর", m:"সর্বদ্রষ্টা"}, {n:"الْحַكَمُ", b:"আল-হাকাম", m:"বিচারক"}, {n:"الْعَدْلُ", b:"আল-আদল", m:"ন্যায়বিচারক"}, {n:"اللَّطِيفُ", b:"আল-লতীফ", m:"সূক্ষ্মদর্শী"}, {n:"الْخَبِيرُ", b:"আল-খাবীর", m:"অবহিত"}, {n:"الْحَلِيمُ", b:"আল-হালীম", m:"ধৈর্যশীল"}, {n:"الْعَظِيمُ", b:"আল-আযীম", m:"মহিমান্বিত"}, {n:"الْغَفُورُ", b:"আল-গাফুর", m:"ক্ষমাশীল"}, {n:"الشَّكُورُ", b:"আশ-শাকুর", m:"গুণগ্রাহী"}, {n:"الْعَلِيُّ", b:"আল-আলী", m:"উচ্চ মর্যাদাশীল"}, {n:"الْكَبِيرُ", b:"আল-কাবীর", m:"মহান"}, {n:"الْحَفِيظُ", b:"আল-হাফীয", m:"রক্ষক"}, {n:"الْمُقИТُ", b:"আল-মুকীত", m:"আহারদাতা"}, {n:"الْحَسִীবُ", b:"আল-হাসীব", m:"হিসাব গ্রহণকারী"}, {n:"الْجَلِিলُ", b:"আল-জালীল", m:"প্রতাপশালী"}, {n:"الْكَرِيمُ", b:"আল-কারীম", m:"দয়ালু"}, {n:"الرَّقِيبُ", b:"আর-রাকীব", m:"তত্ত্বাবধায়ক"}, {n:"الْمُجِيبُ", b:"আল-মুজীব", m:"কবুলকারী"}, {n:"الْوَاسِعُ", b:"আল-ওয়াসি", m:"অসীম দাতা"}, {n:"الْحַكِيمُ", b:"আল-হাকীম", m:"প্রজ্ঞাময়"}, {n:"الْوَدُودُ", b:"আল-ওয়াদুদ", m:"প্রেমময়"}, {n:"الْمَجِيدُ", b:"আল-মাজীদ", m:"গৌরবময়"}, {n:"الْبَاعِثُ", b:"আল-বাইস", m:"পুনরুত্থানকারী"}, {n:"الشَّهِيدُ", b:"আশ-শাহীদ", m:"সাক্ষী"}, {n:"الْحَقُّ", b:"আল-হক", m:"সত্য"}, {n:"الْوَكيلُ", b:"আল-ওয়াকীল", m:"কর্মবিধায়ক"}, {n:"الْقَوِيُّ", b:"আল-কউয়ী", m:"শক্তিশালী"}, {n:"الْمَتِينُ", b:"আল-মাতীন", m:"সুদৃঢ়"}, {n:"الْوَلِيُّ", b:"আল-ওয়ালী", m:"অভিভাবক"}, {n:"الْحَمِيدُ", b:"আল-হামীদ", m:"প্রশংসিত"}, {n:"الْمُحْصِي", b:"আল-মুহসী", m:"হিসাব সংরক্ষণকারী"}, {n:"الْمُبْدِئُ", b:"আল-মুবদী", m:"সৃষ্টিকর্তা"}, {n:"الْمُعِيدُ", b:"আল-মুঈদ", m:"পুনরায় সৃষ্টিকর্তা"}, {n:"الْمُحْيِي", b:"আল-মুহয়ী", m:"জীবনদানকারী"}, {n:"الْمُمِيتُ", b:"আল-মুমীত", m:"মৃত্যুদানকারী"}, {n:"الْحَيُّ", b:"আল-হাইয়্যু", m:"চিরঞ্জীব"}, {n:"الْقَيُّومُ", b:"আল-কাইয়্যুম", m:"ধারক"}, {n:"الْوَاجِدُ", b:"আল-ওয়াজিদ", m:"প্রাপক"}, {n:"الْمَাজِدُ", b:"আল-মাজিদ", m:"শ্রেষ্ঠ"}, {n:"الْوَاحِدُ", b:"আল-ওয়াহিদ", m:"একক"}, {n:"الْأَحَدُ", b:"আল-আহাদ", m:"অद्वितीय"}, {n:"الصَّمَدُ", b:"আস-সামাদ", m:"অমুখাপেক্ষী"}, {n:"الْقَادِرُ", b:"আল-কাদির", m:"সর্বশক্তিমান"}, {n:"الْمُقْتَدِرُ", b:"আল-মুক্তাদির", m:"সামর্থ্যবান"}, {n:"الْمُقَدِّمُ", b:"আল-মুকাদ্দিম", m:"অগ্রগতি দানকারী"}, {n:"الْمُؤَخِّরُ", b:"আল-মুআখখির", m:"বিলম্বকারী"}, {n:"الْأَوَّلُ", b:"আল-আউয়াল", m:"অনাাদি"}, {n:"الْآخِرُ", b:"আল-আখির", m:"অনন্ত"}, {n:"الظَّاهِرُ", b:"আয-যাহির", m:"প্রকাশ্য"}, {n:"الْبَاطِنُ", b:"আল-বাতিন", m:"গোপন"}, {n:"الْوَالِي", b:"আল-ওয়ালী", m:"অধিপতি"}, {n:"الْمُتَعَالِي", b:"আল-মুতাআলী", m:"সর্বোচ্চ মহিমান্বিত"}, {n:"الْبَرُّ", b:"আল-বার", m:"কল্যাণময়"}, {n:"التَّوَّابُ", b:"আত-তাওয়াব", m:"তওবা কবুলকারী"}, {n:"الْمُنْتَقِمُ", b:"আল-মুন্তাকিম", m:"প্রতিশোধ গ্রহণকারী"}, {n:"الْعَفُوُّ", b:"আল-আফু", m:"মার্জনাকারী"}, {n:"الرَّؤُوفُ", b:"আর-রাউফ", m:"দয়ালু"}, {n:"مَالِكُ الْمُلْكِ", b:"মালিকুল মুলক", m:"জগতের মালিক"}, {n:"ذُو الْجَلَالِ وَالْإِكْرَامِ", b:"যুল জালালি ওয়াল ইকরম", m:"মহত্ত্বের অধিকারী"}, {n:"الْمُقْسִطُ", b:"আল-মুকসিত", m:"ন্যায়পরায়ণ"}, {n:"الْجَামِعُ", b:"আল-জামি", m:"একত্রকারী"}, {n:"الْغَنِيُّ", b:"আল-গণী", m:"ধনী"}, {n:"الْمُغْنِي", b:"আল-মুগণী", m:"অভাবমুক্তকারী"}, {n:"الْمَانِعُ", b:"আল-মানি", m:"প্রতিরোধকারী"}, {n:"الضَّارُّ", b:"আদ-দার", m:"অনিষ্টকারী"}, {n:"النَّافِعُ", b:"আন-নাফি", m:"উপকারকারী"}, {n:"النُّورُ", b:"আন-নূর", m:"জ্যোতি"}, {n:"الْهَادِي", b:"আল-হাদী", m:"পথপ্রদর্শক"}, {n:"الْبَدِيعُ", b:"আল-বাদী", m:"অপূর্ব সৃষ্টিকর্তা"}, {n:"الْبَاقِي", b:"আল-বাকী", m:"অবিনশ্বর"}, {n:"الْوَارِثُ", b:"আল-ওয়ারিস", m:"উত্তরাধিকারী"}, {n:"الرَّشִيدُ", b:"আর-রাশীদ", m:"সঠিক পথের দিশারী"}, {n:"الصَّবُورُ", b:"আস-সাবুর", m:"ধৈর্যশীল"}
 ];
 
 const surahListBN = ["ফাতিহা", "বাকারা", "আল ইমরান", "নিসা", "মায়িদাহ", "আনআম", "আরাফ", "আনফাল", "তাওবাহ", "ইউনুস", "হুদ", "ইউসুফ", "রাদ", "ইব্রাহিম", "হিজর", "নাহল", "ইসরা", "কাহফ", "মারইয়াম", "ত্বহা", "আম্বিয়া", "হজ", "মুমিনুন", "নূর", "ফুরকান", "শুয়ারা", "নামল", "কাসাস", "আনকাবুত", "রূম", "লুকমান", "সাজদাহ", "আহযাব", "সাবা", "ফাতির", "ইয়াসিন", "সাফফাত", "সোয়াদ", "যুমার", "গাফির", "ফুসসিলাত", "শূরা", "যুখরুফ", "দুখান", "জাছিয়াহ", "আহকাফ", "মুহাম্মাদ", "ফাতহ", "হুজুরাত", "ক্বাফ", "যারিয়াত", "তূর", "নাজম", "কামার", "রাহমান", "ওয়াকিয়াহ", "হাদিদ", "মুজাদালাহ", "হাশর", "মুমতাহিনা", "সাফ", "জুমুআহ", "মুনাফিকুন", "তাগাবুন", "তালাক", "তাহরীম", "মুলক", "কলম", "হাক্কাহ", "মাআরিজ", "নূহ", "জ্বিন", "মুযযামমিল", "মুদ্দাসসির", "কিয়ামাহ", "ইনসান", "মুরসালাত", "নাবা", "নাযিয়াত", "আবাসা", "তাকবীর", "ইনফিতার", "মুতাফফিফিন", "ইনশিকাক", "বুরূজ", "তারিক", "আলা", "গাশিয়াহ", "ফাজর", "বালাদ", "শামস", "লাইল", "দুহা", "শারহ", "তীন", "আলাক", "কদর", "বাইয়্যিনাহ", "যিলযাল", "আদিয়াত", "কারিআহ", "তাকাসুর", "আসর", "হুমাযাহ", "ফীল", "কুরাইশ", "মাউন", "কাওসার", "কাফিরুন", "নাসর", "লাহাব", "ইখলাস", "ফালাক", "নাস"];
 
-let tCount=0; let currentState='home'; let currentCat='';
+let tCount=0; let currentState='home'; let currentCat=''; let fetchedData = {};
+
+function universalSearch() {
+    let input = document.getElementById('mainSearch').value.toLowerCase();
+    let cards = document.getElementsByClassName('card');
+    for (let card of cards) card.style.display = card.innerText.toLowerCase().includes(input) ? "block" : "none";
+}
+
+// CSV পার্সার
+function parseCSV(text) {
+    const rows = text.split(/\r?\n/);
+    return rows.slice(1).map(row => {
+        const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(c => c.replace(/^"|"$/g, '').trim());
+        return { t: cols[0], d: cols[1], ar: cols[2], pr: cols[3] };
+    }).filter(i => i.t);
+}
 
 async function openCat(cat){
     currentCat=cat; currentState='list';
+    document.getElementById('mainHeader').style.display='none';
+    document.getElementById('search-section').style.display='none';
     document.getElementById('dashboard').style.display='none';
     document.getElementById('content-area').style.display='block';
     const list=document.getElementById('list');
     list.innerHTML='<p class="loading">লোড হচ্ছে...</p>';
 
-    if(cat==='names') list.innerHTML=names99.map((n,i)=>`<div class="item-card"><h2 class="ar">${i+1}. ${n.n}</h2><h3>${n.b}</h3><p><b>অর্থ:</b> ${n.m}</p></div>`).join('');
-    else if(cat==='kalema') list.innerHTML=kalemaData.map((d,i)=>`<div class="item-card" onclick="showLocalDetail('kalema',${i})"><h3>${d.t}</h3><p>বিস্তারিত দেখুন</p></div>`).join('');
-    else if(cat==='dua') list.innerHTML=duaData.map((d,i)=>`<div class="item-card" onclick="showLocalDetail('dua',${i})"><h3>${d.t}</h3><p>বিস্তারিত দেখুন</p></div>`).join('');
-    else if(cat==='namaj') list.innerHTML=namajData.map((d,i)=>`<div class="item-card" onclick="showLocalDetail('namaj',${i})"><h3>${d.t}</h3><p>বিস্তারিত দেখুন</p></div>`).join('');
-    else if(cat==='masala') list.innerHTML=masalaData.map((m,i)=>`<div class="item-card" onclick="showLocalDetail('masala',${i})"><h3>${m.t}</h3><p>বিস্তারিত দেখুন</p></div>`).join('');
-    else if(cat==='salattime') list.innerHTML=`<div class="item-card"><table><tr><th>নামাজ</th><th>সময়</th></tr><tr><td>ফজর</td><td>৫:১০ AM</td></tr><tr><td>যোহর</td><td>১২:১০ PM</td></tr><tr><td>আসর</td><td>৪:১৫ PM</td></tr><tr><td>মাগরিব</td><td>৫:৫০ PM</td></tr><tr><td>এশা</td><td>৭:১৫ PM</td></tr></table></div>`;
-    else if(cat==='tasbih') list.innerHTML=`<div class="item-card" style="text-align:center"><h2>তসবিহ</h2><div class="t-circle" id="t-display">${tCount}</div><button class="t-btn" onclick="countUp()">গণনা</button><button class="t-btn" onclick="tCount=0; countUp(0)">রিসেট</button></div>`;
+    if(cat==='names') {
+        list.innerHTML=names99.map((n,i)=>`<div class="item-card"><h2 class="ar">${i+1}. ${n.n}</h2><h3>${n.b}</h3><p><b>অর্থ:</b> ${n.m}</p></div>`).join('');
+    }
+    else if(sheetLinks[cat]) {
+        try {
+            const res = await fetch(sheetLinks[cat]);
+            const text = await res.text();
+            fetchedData[cat] = parseCSV(text);
+            list.innerHTML = fetchedData[cat].map((item, i) => `<div class="item-card" onclick="showDetail('${cat}', ${i})"><h3>${item.t}</h3><p style="color:#666; font-size:14px;">বিস্তারিত দেখুন...</p></div>`).join('');
+        } catch(e) { list.innerHTML = '<div class="item-card">লোড করতে সমস্যা হয়েছে।</div>'; }
+    }
+    else if(cat==='salattime') {
+        fetchTimeData();
+    }
+    else if(cat==='tasbih') {
+        list.innerHTML=`<div class="item-card" style="text-align:center"><h2>তসবিহ</h2><div class="t-circle" id="t-display">${tCount}</div><button class="t-btn" onclick="countUp()">গণনা</button><button class="t-btn" onclick="tCount=0; countUp(0)">রিসেট</button></div>`;
+    }
+    else if(cat==='surah_text' || cat==='voice') {
+        const res = await fetch('https://api.alquran.cloud/v1/surah');
+        const d = await res.json();
+        list.innerHTML = d.data.map((s, i) => `<div class="item-card" onclick="${cat==='surah_text' ? `showSurah(${s.number},'${surahListBN[i]}')` : ''}"><h3>${s.number}. সূরা ${surahListBN[i]}</h3>${cat === 'voice' ? `<audio controls style="width:100%; margin-top:10px;"><source src="https://server8.mp3quran.net/afs/${s.number.toString().padStart(3, '0')}.mp3"></audio>` : ''}</div>`).join('');
+    }
     else if(cat==='hadith') {
         const res = await fetch('https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/ben-bukhari.json');
         const data = await res.json();
         list.innerHTML = data.hadiths.slice(0, 50).map(h => `<div class="item-card"><h3>বুখারী - ${h.hadithnumber}</h3><p>${h.text}</p></div>`).join('');
     }
-    else if(cat==='surah_text' || cat==='voice') {
-        const res = await fetch('https://api.alquran.cloud/v1/surah');
-        const d = await res.json();
-        list.innerHTML = d.data.map((s, i) => `<div class="item-card" onclick="${cat==='surah_text' ? `showSurah(${s.number},'${surahListBN[i]}')` : ''}"><h3>${s.number}. সূরা ${surahListBN[i]}</h3>${cat === 'voice' ? `<audio controls style="width:100%; margin-top:10px;"><source src="https://server8.mp3quran.net/afs/${s.number.toString().padStart(3, '0')}.mp3"></audio>` : '<p style="color:var(--s)">পড়ার জন্য ক্লিক করুন</p>'}</div>`).join('');
-    }
+    else { list.innerHTML = '<div class="item-card">তথ্য এখনো যুক্ত করা হয়নি।</div>'; }
+}
+
+function showDetail(cat, i) {
+    currentState = 'details';
+    const item = fetchedData[cat][i];
+    document.getElementById('list').innerHTML = `
+        <div class="item-card">
+            <h2>${item.t}</h2>
+            ${item.ar ? `<span class="ar">${item.ar}</span>` : ''}
+            ${item.pr ? `<span class="occ">উচ্চারণ: ${item.pr}</span>` : ''}
+            <p class="mean" style="white-space:pre-wrap; color:#333; margin-top:10px; font-size:18px;">${item.d}</p>
+        </div>`;
+}
+
+async function fetchTimeData() {
+    const list = document.getElementById('list');
+    try {
+        const res = await fetch('https://api.aladhan.com/v1/timingsByCity?city=Dhaka&country=Bangladesh&method=1');
+        const data = await res.json();
+        const t = data.data.timings;
+        const d = data.data.date;
+        list.innerHTML = `
+            <div class="date-box">
+                <p><b>ইংরেজি:</b> ${d.readable}</p>
+                <p><b>হিজরি:</b> ${d.hijri.day} ${d.hijri.month.en} ${d.hijri.year}</p>
+            </div>
+            <div class="item-card">
+                <table>
+                    <tr><th>নামাজ/সময়</th><th>সময়</th></tr>
+                    <tr><td>সূর্যোদয়</td><td style="color:orange">${t.Sunrise} AM</td></tr>
+                    <tr><td>ফজর</td><td>${t.Fajr} AM</td></tr>
+                    <tr><td>যোহর</td><td>${t.Dhuhr} PM</td></tr>
+                    <tr><td>আসর</td><td>${t.Asr} PM</td></tr>
+                    <tr><td>সূর্যাস্ত</td><td style="color:red">${t.Sunset} PM</td></tr>
+                    <tr><td>এশা</td><td>${t.Isha} PM</td></tr>
+                </table>
+            </div>`;
+    } catch (e) { list.innerHTML = '<p class="loading">লোডিং ব্যর্থ!</p>'; }
 }
 
 async function showSurah(id, name) {
     currentState = 'details';
     const list = document.getElementById('list');
-    list.innerHTML = '<p class="loading">বাংলা উচ্চারণসহ লোড হচ্ছে...</p>';
-    try {
-        const response = await fetch(`https://api.quran.com/api/v4/verses/by_chapter/${id}?language=bn&words=true&translation_fields=text&translations=161&fields=text_uthmani`);
-        const data = await response.json();
-        let html = `<h2 style="text-align:center; color:var(--p); border-bottom:2px solid var(--p); padding-bottom:10px;">সূরা ${name}</h2>`;
-        data.verses.forEach((verse) => {
-            let banglaPronunciation = verse.words.map(word => word.transliteration ? word.transliteration.text : '').join(' ');
-            html += `<div class="item-card"><span class="ar">${verse.text_uthmani}</span><span class="occ"><b>উচ্চারণ:</b> ${banglaPronunciation}</span><span class="mean"><b>অর্থ:</b> ${verse.translations[0].text}</span></div>`;
-        });
-        list.innerHTML = html;
-        window.scrollTo(0,0);
-    } catch (error) { list.innerHTML = '<p class="loading">লোড ব্যর্থ হয়েছে।</p>'; }
+    list.innerHTML = '<p class="loading">লোড হচ্ছে...</p>';
+    const response = await fetch(`https://api.quran.com/api/v4/verses/by_chapter/${id}?language=bn&words=true&translation_fields=text&translations=161&fields=text_uthmani`);
+    const data = await response.json();
+    let h = `<h2 style="text-align:center; color:var(--p)">সূরা ${name}</h2>`;
+    data.verses.forEach((v) => {
+        let p = v.words.map(w => w.transliteration ? w.transliteration.text : '').join(' ');
+        h += `<div class="item-card"><span class="ar">${v.text_uthmani}</span><span class="occ">উচ্চারণ: ${p}</span><span class="mean">অর্থ: ${v.translations[0].text}</span></div>`;
+    });
+    list.innerHTML = h;
 }
 
-function showLocalDetail(type,index){
-    currentState='details';
-    const list=document.getElementById('list');
-    let item;
-    if(type==='kalema') item=kalemaData[index];
-    else if(type==='dua') item=duaData[index];
-    else if(type==='namaj') item=namajData[index];
-    else if(type==='masala') item=masalaData[index];
-    list.innerHTML=`<div class="item-card"><h2>${item.t}</h2>${item.ar?`<span class="ar">${item.ar}</span>`:''}${item.occ?`<span class="occ">উচ্চারণ: ${item.occ}</span>`:''}${item.mean?`<span class="mean">অর্থ: ${item.mean}</span>`:''}${item.detail?`<p>${item.detail}</p>`:''}</div>`;
+function handleBack(){ 
+    if(currentState==='details') openCat(currentCat); 
+    else { 
+        document.getElementById('mainHeader').style.display='block';
+        document.getElementById('search-section').style.display='block';
+        document.getElementById('dashboard').style.display='grid'; 
+        document.getElementById('content-area').style.display='none'; 
+        currentState='home'; 
+    } 
+    document.getElementById('mainSearch').value = "";
+    universalSearch(); 
 }
 
-function handleBack(){ if(currentState==='details') openCat(currentCat); else { document.getElementById('dashboard').style.display='grid'; document.getElementById('content-area').style.display='none'; currentState='home'; } }
 function countUp(v=1){ if(v===1) tCount++; document.getElementById('t-display').innerText=tCount; }
 </script>
 </body>
